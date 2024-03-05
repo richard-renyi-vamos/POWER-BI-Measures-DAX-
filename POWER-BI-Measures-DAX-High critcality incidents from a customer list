@@ -1,0 +1,10 @@
+# Incident_CRITICAL_Count = 
+COUNTROWS(
+    FILTER(
+        FILTER(
+            '#FULL INCIDENT LIST 2024 01, 02',
+            '#FULL INCIDENT LIST 2024 01, 02'[CRITICALITY] = "HIGH"
+        ),
+        '#FULL INCIDENT LIST 2024 01, 02'[CUSTOMER LIST] <> "# not our customer"
+    )
+)
