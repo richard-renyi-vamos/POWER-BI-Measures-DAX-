@@ -1,0 +1,13 @@
+SalesAmount = 
+VAR SelectedSales = CALCULATE(
+                        SUM('Sales'[Amount]),
+                        FILTER(
+                            'Sales',
+                            'Sales'[Region] = "Europe" &&
+                            'Sales'[Product] = "Product A" &&
+                            'Sales'[Year] = 2023 &&
+                            'Sales'[Month] = "January" &&
+                            'Sales'[Customer] = "Customer X"
+                        )
+                    )
+RETURN SelectedSales
