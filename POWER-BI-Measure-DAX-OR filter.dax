@@ -1,0 +1,5 @@
+FilteredTable =
+FILTER(
+    'YourTableName',
+    'YourTableName'[Color] = "BLUE" && 'YourTableName'[Shape] = "CIRCULAR"
+)
