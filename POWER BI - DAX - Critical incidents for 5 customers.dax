@@ -1,0 +1,6 @@
+CustomerCriticalIncidentCount = 
+CALCULATE(
+    COUNTROWS(Incidents),
+    Incidents[IncidentSeverity] = "Critical",
+    Incidents[CustomerID] IN { "Cust1", "Cust2", "Cust3", "Cust4", "Cust5" }
+)
