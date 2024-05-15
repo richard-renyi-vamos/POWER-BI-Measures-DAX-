@@ -1,0 +1,6 @@
+# % Critical INM SLA = CALCULATE(
+    AVERAGE('# INM SUMMARY[Incident SLA OK]),     
+    '# INM SUMMARY'[Cricitality] = "Criticality",
+    '# INM SUMMARY'[Finalized] = 1,
+    '# INM SUMMARY'[Valid] = 1,
+    NOT(ISBLANK('# INM SUMMARY'[Customer Name])))
