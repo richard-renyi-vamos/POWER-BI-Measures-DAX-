@@ -1,0 +1,10 @@
+Correlation = 
+VAR ColumnX = 'Table'[Column1]
+VAR ColumnY = 'Table'[Column2]
+VAR AvgX = AVERAGE('Table'[Column1])
+VAR AvgY = AVERAGE('Table'[Column2])
+VAR SumProductX_Y = SUMX('Table', (ColumnX - AvgX) * (ColumnY - AvgY))
+VAR SumSquareX = SUMX('Table', (ColumnX - AvgX) ^ 2)
+VAR SumSquareY = SUMX('Table', (ColumnY - AvgY) ^ 2)
+RETURN 
+    DIVIDE(SumProductX_Y, SQRT(SumSquareX * SumSquareY))
