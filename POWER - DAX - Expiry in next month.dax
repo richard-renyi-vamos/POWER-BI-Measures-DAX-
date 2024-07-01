@@ -1,0 +1,4 @@
+= if Date.IsInNextNDays(
+    Date.AddMonths([DATE OF COMPLETION], 18),
+    30
+  ) then "EXPIRING" else "n/a"
