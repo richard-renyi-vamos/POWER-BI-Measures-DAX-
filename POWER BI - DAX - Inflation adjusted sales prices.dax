@@ -1,0 +1,19 @@
+Adjusted Sales = 
+VAR CurrentYear = MAX('Sales Data'[Year])
+VAR InflationRateCurrentYear = 
+    CALCULATE(
+        MAX('Inflation Table'[InflationRate]),
+        'Inflation Table'[Year] = CurrentYear
+    )
+VAR InflationRateBaseYear = 
+    CALCULATE(
+        MAX('Inflation Table'[InflationRate]),
+        'Inflation Table'[Year] = MAX('Sales Data'[Year])
+    )
+VAR AdjustedSalesValue = 
+    SUMX(
+        'Sales Data',
+        'Sales Data'[Sales] * InflationRateCurrentYear / InflationRateBaseYear
+    )
+RETURN
+    AdjustedSalesValue 
